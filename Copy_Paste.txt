@@ -1,17 +1,10 @@
-The parameters that can be tuned in SVC using GridSearchCV are:
-
-C: This is the regularization parameter that controls the trade-off between maximizing the margin and minimizing the classification error. A smaller value of C results in a wider margin and a smaller number of support vectors, while a larger value of C results in a narrower margin and a larger number of support vectors. The default value is 1.0.
-
-kernel: This parameter specifies the type of kernel function used in the SVC algorithm. The available options are ‘linear’, ‘poly’, ‘rbf’, ‘sigmoid’, and ‘precomputed’. The default kernel is ‘rbf’.
-
-gamma: This parameter determines the kernel coefficient for ‘rbf’, ‘poly’, and ‘sigmoid’. It controls the shape of the decision boundary. A smaller gamma value results in a smoother decision boundary, while a larger gamma value results in a more complex decision boundary. If gamma is ‘auto’ or ‘scale’, then the kernel coefficient is calculated based on the number of features in the training data.
-
-degree: This parameter determines the degree of the polynomial kernel function (‘poly’). It is ignored by all other kernels. The default value is 3.
-
-coef0: This parameter is an independent term in the kernel function. It is only significant in ‘poly’ and ‘sigmoid’. The default value is 0.0.
-
-shrinking: This parameter controls whether to use the shrinking heuristic. If set to True, the algorithm will use the shrinking heuristic to speed up the optimization process. The default value is True.
-
-tol: This parameter specifies the tolerance for stopping criteria. The algorithm will stop when the change in the objective function is smaller than tol. The default value is 1e-3.
-
-class_weight: This parameter can be used to specify weights for the classes. This is useful when dealing with imbalanced datasets, where the number of samples in each class is not equal. The default is None, which means all classes have equal weight.
+param_grid = {
+    'C': [0.1, 1, 10, 100],
+    'kernel': ['linear', 'poly', 'rbf', 'sigmoid'],
+    'gamma': ['scale', 'auto', 0.1, 1, 10],
+    'degree': [2, 3, 4],
+    'coef0': [0, 1, 2],
+    'shrinking': [True, False],
+    'tol': [1e-4, 1e-3, 1e-2],
+    'class_weight': [None, 'balanced']
+}
