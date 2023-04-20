@@ -1,10 +1,15 @@
-param_grid = {
-    'C': [0.1, 1, 10, 100],
-    'kernel': ['linear', 'poly', 'rbf', 'sigmoid'],
-    'gamma': ['scale', 'auto', 0.1, 1, 10],
-    'degree': [2, 3, 4],
-    'coef0': [0, 1, 2],
-    'shrinking': [True, False],
-    'tol': [1e-4, 1e-3, 1e-2],
-    'class_weight': [None, 'balanced']
-}
+criterion: This parameter specifies the function to measure the quality of a split. The available options are ‘gini’ and ‘entropy’. The default criterion is ‘gini’.
+
+splitter: This parameter specifies the strategy used to choose the split at each node. The available options are ‘best’ and ‘random’. The default splitter is ‘best’.
+
+max_depth: This parameter specifies the maximum depth of the tree. A deeper tree can capture more complex relationships in the data, but it can also lead to overfitting. The default value is None, which means the nodes are expanded until all the leaves are pure or until all the leaves contain less than min_samples_split samples.
+
+min_samples_split: This parameter specifies the minimum number of samples required to split an internal node. The default value is 2. Setting a higher value can prevent overfitting.
+
+min_samples_leaf: This parameter specifies the minimum number of samples required to be at a leaf node. The default value is 1. Setting a higher value can prevent overfitting.
+
+max_features: This parameter specifies the number of features to consider when looking for the best split. The available options are ‘auto’, ‘sqrt’, ‘log2’, or an integer value. The default value is None, which means all features are considered.
+
+max_leaf_nodes: This parameter specifies the maximum number of leaf nodes in the tree. The default value is None, which means there is no limit on the number of leaf nodes.
+
+class_weight: This parameter can be used to specify weights for the classes. This is useful when dealing with imbalanced datasets, where the number of samples in each class is not equal. The default is None, which means all classes have equal weight.
